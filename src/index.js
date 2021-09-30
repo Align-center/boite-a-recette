@@ -2,11 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Login from './component/Login';
+import NotFound from './component/NotFound';
 import reportWebVitals from './reportWebVitals';
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+const Root = () => (
+  <BrowserRouter>
+      <Switch>
+          <Route exact path='/' component={Login}></Route>
+          <Route exact path='/pseudo/:pseudo' component={App}></Route>
+          <Route exact component={NotFound}></Route>
+      </Switch>
+  </BrowserRouter>
+)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Root />
   </React.StrictMode>,
   document.getElementById('root')
 );
